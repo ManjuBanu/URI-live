@@ -8,14 +8,14 @@ import {CollectionPageContainer,
     CollectionTitle,
     CollectionItemsContainer} from './style-collections';
 
-const CollectionsPage = ({collection}) => {
+const CollectionsPage = ({collection,match,history,linkUrl}) => {
 
 console.log('match',collection)
 const {title,items} = collection;
 return(
 
     <CollectionPageContainer>
-    <CollectionTitle>{title}</CollectionTitle>
+    <CollectionTitle onClick = { () => history.push(`${match.url}${linkUrl}`)}>{title}</CollectionTitle>
     <CollectionItemsContainer>
     {
         items.map(item => (
