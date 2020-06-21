@@ -22,13 +22,29 @@ class ShopPage extends React.Component{
 
 componentDidMount(){
   const {updateCollection} = this.props;
-  const collectionRef = firestore.collection('collection');
+  const collectionRef = firestore.collection('collections');
 
+/** another way [promises] of getting data from firebase using promises */
+  // collectionRef.get().then(snapShot =>{
+  //     let collectionMap = convertCollectionsSnapshotToMap(snapShot);
+  //     updateCollection(collectionMap);
+  //     this.setState({loading:false})
+  // }
+  // )
+
+
+  /** using [API] ...it will take more time to load */
+  // fetch('https://firestore.googleapis.com/v1/projects/ecomm-db-ad897/databases/(default)/documents/collections')
+  // .then(response =>response.json())
+  // .then(collections => console.log('collection API', collections));
+
+/**  way of [observable patters --(for firebase)] */
   this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapShot =>{
     let collectionMap = convertCollectionsSnapshotToMap(snapShot);
     updateCollection(collectionMap);
     this.setState({loading:false})
   })
+
 
 }
 

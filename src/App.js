@@ -22,8 +22,10 @@ unSubscribeFromAuth = null;
 
     const {setCurrentUser} = this.props;
     //it exectutes whenever the auth chenging 
-    this.unSubscribeFromAuth =  auth.onAuthStateChanged(async userAuth => {
 
+    /** this is useing observable concept .....conAuthState changed is a strem , observable handling those things,,, */
+    this.unSubscribeFromAuth =  auth.onAuthStateChanged(async userAuth => {
+// (unSubscribeFromAuth) using bcz auth will alaways hold values, we don't want after component UNMOUNT 
       if(userAuth){
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -44,11 +46,11 @@ unSubscribeFromAuth = null;
       // addCollectionAndDocuments('collection2',collectionArray.map(({title, items}) =>({title, items})))
       // addCollectionAndDocuments('collections',collectionArray.map(({title, items}) =>({title, items})))
 
-    });
+    }, error =>{console.log(error)}); // u can handle error which is the second method of observable..
 }
 
 componentWillUnmount(){
-  this.unSubscribeFromAuth();
+  this.unSubscribeFromAuth(); // we don't need auth anymore
 }
 
   render(){
