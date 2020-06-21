@@ -10,13 +10,11 @@ import {CollectionsOverviewContainer} from './style-collection-overview';
 
 
 const CollectionOverview =({collections}) =>(
-     <CollectionsOverviewContainer>
-     {
-        collections.map(({id,...otherCollectionProps}) => ( 
-            <CollectionPreview key={id} {...otherCollectionProps}/>
-        ))
-    }
-    </CollectionsOverviewContainer>
+    <CollectionsOverviewContainer>
+    {collections.map(({ id, ...otherCollectionProps }) => (
+      <CollectionPreview key={id} {...otherCollectionProps} />
+    ))}
+  </CollectionsOverviewContainer>
 )
 
 
