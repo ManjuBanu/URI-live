@@ -16,8 +16,6 @@ export const ButtonsBarContainer = styled.div`
 `;
 
 
-
-
 // .sign-in {
 //     width: 380px;
 //     display: flex;
