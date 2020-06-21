@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import CollectionsOverviewContainer from './../../components/collection-overview/container-collection-overview';
 // import {firestore,convertCollectionsSnapshotToMap} from './../../firebase/firebase-util';
 import {connect} from 'react-redux';
-import {fetchCollectionsRequestAsync} from './../../redux/shop/act-shop';
+import {fetchCollectionsRequest} from './../../redux/shop/act-shop';
 import CollectionPageContainer from './../collections/container-collection';
 
 
@@ -27,9 +27,13 @@ class ShopPage extends React.Component{
   // unsubscribeFromSnapshot = null;
 
 componentDidMount(){
+  
+  const {fetchCollectionsRequest} = this.props;
+  fetchCollectionsRequest();
 
-const {fetchCollectionsRequestAsync} = this.props;
-fetchCollectionsRequestAsync();
+  /** replacing thunk with saga  */
+// const {fetchCollectionsRequestAsync} = this.props;
+// fetchCollectionsRequestAsync();
 
 //   /** [these codes moved to redux reducer] */
 //   const {updateCollection} = this.props;
@@ -81,7 +85,8 @@ fetchCollectionsRequestAsync();
 
 
 const mapDispatchToProps = dispatch =>({
-  fetchCollectionsRequestAsync:()=>dispatch(fetchCollectionsRequestAsync())
+  // fetchCollectionsRequestAsync:()=>dispatch(fetchCollectionsRequestAsync())
+  fetchCollectionsRequest: () => dispatch(fetchCollectionsRequest())
 })
 
 export default connect(null,mapDispatchToProps) (ShopPage);
