@@ -1,28 +1,31 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './App.css';
 import { Route,Switch, Redirect} from 'react-router-dom';
 import {Home} from './pages/home/home';
 import ShopPage from './pages/shop/shop-page';
 import Header from './components/header/header';
 import SignInSignUp from './pages/sign-in-up/sing-in-up';
-import {auth, createUserProfileDocument} from './firebase/firebase-util'; //{addCollectionAndDocuments}
-import {setCurrentUser} from './redux/user/act-user';
 import {connect} from 'react-redux';
 import {selectCurrentUser} from './redux/user/selector-user';
 import {createStructuredSelector} from 'reselect';
 import CheckoutPage from './pages/checkout/checkout-page';
-// import {selectCollectionsForPreview} from './redux/shop/selector-shop';
 import { checkUserSession } from './redux/user/act-user';
 
-class App extends React.Component {
+/** class component coverted to functional component....for the class component ref u can check shop-page means the [componentDidMount] */
 
 
-unSubscribeFromAuth = null;
-
-
-componentDidMount() {
-    const { checkUserSession } = this.props;
+const App = ({ checkUserSession, currentUser }) => {
+  useEffect(() => {
     checkUserSession();
+  }, [checkUserSession]);
+
+
+// unSubscribeFromAuth = null;
+
+
+// componentDidMount() {
+//     const { checkUserSession } = this.props;
+//     checkUserSession();
     
   
 
@@ -56,13 +59,10 @@ componentDidMount() {
 
 
 
-}
+// componentWillUnmount(){
+//   this.unSubscribeFromAuth(); // we don't need auth anymore
+// }
 
-componentWillUnmount(){
-  this.unSubscribeFromAuth(); // we don't need auth anymore
-}
-
-  render(){
     return (
       <div>
       <Header/>
@@ -73,7 +73,7 @@ componentWillUnmount(){
           <Route 
           exact 
           path='/signin' 
-          render={()=> this.props.currentUser ?
+          render={()=> currentUser ?
           (<Redirect to='/'/>)
           :
           (<SignInSignUp/>)
@@ -84,7 +84,6 @@ componentWillUnmount(){
     );
 
   }
-}
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
