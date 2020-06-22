@@ -5,6 +5,9 @@ import CustomButton from '../button/button';
 import {auth, createUserProfileDocument } from '../../firebase/firebase-util';
 
 import { SignUpContainer, SignUpTitle} from './style-sign-up';
+import { connect } from 'react-redux';
+import {signUpStart} from './../../redux/user/act-user';
+
 
 class SignUp extends React.Component{
     constructor(){
@@ -18,64 +21,49 @@ class SignUp extends React.Component{
         }
     }
 
-
-    // handleSubmit = async event =>{
-    //     event.preventDefault();
-    //     const {displayName , email , password, confirmPassword} = this.state;
-
-    //     if(password !== confirmPassword) {
-    //         alert("password should be match");
-    //         return;
-    //     }
-
-    //     try{
-
-    //         const {user} = await auth.createUserWithEmailAndPassword(email, password);
-            
-    //         await createUserProfileDocument(user, {displayName});
-    //         this.setState ({
-    //             displayName:'',
-    //             email:'',
-    //             password:'',
-    //             confirmPassword:''
-    //         });
-    //             console.log('subit',this.state);
-    //     }catch(error){
-    //         console.log(error);
-    //     }
-    // }
-
     
     handleSubmit = async event => {
-        event.preventDefault();
-    
-        const { displayName, email, password, confirmPassword } = this.state;
-    
-        if (password !== confirmPassword) {
-          alert("passwords don't match");
-          return;
-        }
-    
-        try {
-          const { user } = await auth.createUserWithEmailAndPassword(
-            email,
-            password
-          );
-    
-          await createUserProfileDocument(user, { displayName });
-    
-          this.setState({
-            displayName: '',
-            email: '',
-            password: '',
-            confirmPassword: ''
-          });
+      event.preventDefault();
+      const { signUpStart } = this.props;
+      const { displayName, email, password, confirmPassword } = this.state;
+  
+      if (password !== confirmPassword) {
+        alert("passwords don't match");
+        return;
+      }
+  
+      signUpStart({ displayName, email, password });
 
-          console.log('submited', this.state)
+      /** moved to sagas */
+        // event.preventDefault();
+    
+        // const { displayName, email, password, confirmPassword } = this.state;
+    
+        // if (password !== confirmPassword) {
+        //   alert("passwords don't match");
+        //   return;
+        // }
+    
+        // try {
+        //   const { user } = await auth.createUserWithEmailAndPassword(
+        //     email,
+        //     password
+        //   );
+    
+        //   await createUserProfileDocument(user, { displayName });
+    
+        //   this.setState({
+        //     displayName: '',
+        //     email: '',
+        //     password: '',
+        //     confirmPassword: ''
+        //   });
 
-        } catch (error) {
-          console.error(error);
-        }
+        //   console.log('submited', this.state)
+
+        // } catch (error) {
+        //   console.error(error);
+        // }
       };
 
 
@@ -139,4 +127,9 @@ class SignUp extends React.Component{
     }
 }
 
-export default SignUp;
+
+const mapDispatchToProps = dispatch => ({
+  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
+});
+
+export default connect(null,mapDispatchToProps) (SignUp);
