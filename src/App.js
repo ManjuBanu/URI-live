@@ -12,16 +12,19 @@ import {selectCurrentUser} from './redux/user/selector-user';
 import {createStructuredSelector} from 'reselect';
 import CheckoutPage from './pages/checkout/checkout-page';
 // import {selectCollectionsForPreview} from './redux/shop/selector-shop';
+import { checkUserSession } from './redux/user/act-user';
 
 class App extends React.Component {
 
 
 unSubscribeFromAuth = null;
 
-  componentDidMount(){
 
-    const {setCurrentUser} = this.props;
-
+componentDidMount() {
+    const { checkUserSession } = this.props;
+    checkUserSession();
+    
+  
 
     
 //     //it exectutes whenever the auth chenging 
@@ -88,9 +91,13 @@ const mapStateToProps = createStructuredSelector({
   // collectionArray: selectCollectionsForPreview,  //......bcz we added collections to firebase programattically
 })
 
-const mapDispatchToProps = dispatch =>({
-  setCurrentUser:user=> dispatch(setCurrentUser(user))
-})
+// const mapDispatchToProps = dispatch =>({
+//   setCurrentUser:user=> dispatch(setCurrentUser(user))
+// })
+
+const mapDispatchToProps = dispatch => ({
+  checkUserSession: () => dispatch(checkUserSession())
+});
 
 export default connect (mapStateToProps, mapDispatchToProps)(App);
 
