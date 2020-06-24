@@ -1,5 +1,4 @@
 import React,{useEffect} from 'react';
-import './App.css';
 import { Route,Switch, Redirect} from 'react-router-dom';
 import {Home} from './pages/home/home';
 import ShopPage from './pages/shop/shop-page';
