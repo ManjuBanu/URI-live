@@ -10,6 +10,7 @@ import {selectCurrentUser} from './redux/user/selector-user';
 import {createStructuredSelector} from 'reselect';
 import CheckoutPage from './pages/checkout/checkout-page';
 import { checkUserSession } from './redux/user/act-user';
+import {GlobalStyle} from './global.style';
 
 /** class component coverted to functional component....for the class component ref u can check shop-page means the [componentDidMount] */
 
@@ -65,6 +66,7 @@ const App = ({ checkUserSession, currentUser }) => {
 
     return (
       <div>
+      <GlobalStyle/>
       <Header/>
         <Switch>
           <Route exact path='/' component={Home}/>
