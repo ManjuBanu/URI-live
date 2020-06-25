@@ -1,6 +1,5 @@
 import React from 'react';
 import {ReactComponent as Logo} from '../../assets/crown.svg';
-import {auth} from './../../firebase/firebase-util';
 import { connect } from 'react-redux';
 import CartIcon from './../cart-icon/cart-icon';
 import CartDropdown from './../cart-dropdown/cart-dropdown';
@@ -30,7 +29,7 @@ const Header = ({ currentUser, hidden,signOutStart}) => (
         CONTACT
       </OptionLink>
       {currentUser ? (
-        <OptionLink onClick={signOutStart}> 
+        <OptionLink  as='div' onClick={signOutStart}> 
           SIGN OUT
         </OptionLink>
       ) : (
@@ -39,11 +38,10 @@ const Header = ({ currentUser, hidden,signOutStart}) => (
         </OptionLink>
       )}
       <CartIcon/>
+      </OptionsContainer>
       {
         hidden ? null : <CartDropdown/>
       }
-      
-    </OptionsContainer>
   </HeaderContainer>
 );
 

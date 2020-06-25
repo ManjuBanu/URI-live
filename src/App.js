@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import { Route,Switch, Redirect} from 'react-router-dom';
-import {Home} from './pages/home/home';
+import Home from './pages/home/home';
 import ShopPage from './pages/shop/shop-page';
 import Header from './components/header/header';
 import SignInSignUp from './pages/sign-in-up/sing-in-up';
@@ -70,7 +70,7 @@ const App = ({ checkUserSession, currentUser }) => {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/Shop' component={ShopPage}/>
-          <Route path ='/checkout' component={CheckoutPage}></Route>
+          <Route exact path ='/checkout' component={CheckoutPage}/>
           <Route 
           exact 
           path='/signin' 

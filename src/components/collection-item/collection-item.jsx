@@ -12,18 +12,17 @@ import { CollectionItemContainer,
 
 export const CollectionItem =({item,addItem}) =>{
     const { name, price, imageUrl } = item;
+    console.log('collections-imageUrl',imageUrl)
     return(
         <CollectionItemContainer>
-        <BackgroundImage 
-        style = {{
-            backgroundImage:`url(${imageUrl})`
-        }}
-        /> 
+        <BackgroundImage className='image' imageUrl={imageUrl}/> 
         <CollectionFooterContainer>
             <NameContainer>{name}</NameContainer>
             <PriceContainer>{price}</PriceContainer>
             </CollectionFooterContainer>
-            <AddButton inverted onClick={()=>addItem(item)}>Add To Cart</AddButton>
+            <AddButton onClick={() => addItem(item)} inverted>
+            Add to cart
+          </AddButton>
         </CollectionItemContainer>
     )
 }
