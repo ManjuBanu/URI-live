@@ -79,6 +79,7 @@ const App = ({ checkUserSession, currentUser }) => {
         <Suspense fallback={<Spinner/>}>
           <Route exact path='/' component={HomePage}/>
           <Route path='/Shop' component={ShopPage}/>
+          <Route path='/contact' component={ErrorBoundary}/>
           <Route exact path ='/checkout' component={CheckoutPage}/>
           <Route 
           exact 

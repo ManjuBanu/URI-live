@@ -9,8 +9,6 @@ import {CollectionPageContainer,
     CollectionItemsContainer} from './style-collections';
 
 const CollectionsPage = ({collection,match,history,linkUrl}) => {
-
-console.log('match',collection)
 const {title,items} = collection;
 return(
 

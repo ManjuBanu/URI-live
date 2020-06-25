@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 
 import {SignInContainer,
   SignInTitle,
+  SignUpSpan,
   ButtonsBarContainer} from './style-sign-in';
 
 /** class component coverted to functional component [useState] ref [sign-up] for better understanding*/
@@ -46,7 +47,7 @@ import {SignInContainer,
       return (
         <SignInContainer>
           <SignInTitle>I already have an account</SignInTitle>
-          <span>Sign in with your email and password</span>
+          <SignUpSpan>Sign in with your email and password</SignUpSpan>
   
           <form onSubmit={handleSubmit}>
             <FormInput

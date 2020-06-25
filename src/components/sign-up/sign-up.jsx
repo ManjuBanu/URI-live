@@ -3,7 +3,7 @@ import FormInput from '../form/form-component';
 import CustomButton from '../button/button';
 
 
-import { SignUpContainer, SignUpTitle} from './style-sign-up';
+import { SignUpContainer,ButtonsBarContainer, SignUpSpan,SignUpTitle} from './style-sign-up';
 import { connect } from 'react-redux';
 import {signUpStart} from './../../redux/user/act-user';
 
@@ -78,8 +78,8 @@ class SignUp extends React.Component{
 
         return(
             <SignUpContainer>
-            <SignUpTitle className='title'>I do not have a account </SignUpTitle>
-            <span>Sign up with your email and password </span>
+            <SignUpTitle>I do not have a account </SignUpTitle>
+            <SignUpSpan>Sign up with your email and password </SignUpSpan>
             <form className='sign-up-form' onSubmit={this.handleSubmit}>
             <FormInput
             type='text'
@@ -117,9 +117,9 @@ class SignUp extends React.Component{
             required
             >
             </FormInput>
-
+            <ButtonsBarContainer>
             <CustomButton type='submit'>SIGN UP</CustomButton>
-            
+            </ButtonsBarContainer>
             </form>
             </SignUpContainer>
         );
