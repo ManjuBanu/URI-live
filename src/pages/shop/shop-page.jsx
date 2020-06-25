@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import { Route } from 'react-router-dom';
-import CollectionsOverviewContainer from './../../components/collection-overview/container-collection-overview';
-// import {firestore,convertCollectionsSnapshotToMap} from './../../firebase/firebase-util';
 import {connect} from 'react-redux';
 import {fetchCollectionsRequest} from './../../redux/shop/act-shop';
-import CollectionPageContainer from './../collections/container-collection';
+import  { ShopPageContainer } from './style-shop';
+import Spinner from './../../components/spinner/spinner'
+
+// import CollectionsOverviewContainer from './../../components/collection-overview/container-collection-overview';
+// import {firestore,convertCollectionsSnapshotToMap} from './../../firebase/firebase-util';
+// import CollectionPageContainer from './../collections/container-collection';
 
 
 
@@ -19,6 +22,14 @@ import CollectionPageContainer from './../collections/container-collection';
 //   <CollectionPageWithSpinner isLoading={isCollectionsFetch} {...props} />
 // )}
 
+
+const CollectionsOverviewContainer = React.lazy(() =>
+  import('./../../components/collection-overview/container-collection-overview')
+);
+
+const CollectionPageContainer = React.lazy(() =>
+  import('./../collections/container-collection')
+);
 
 class ShopPage extends React.Component{
   // state ={
@@ -68,13 +79,15 @@ componentDidMount(){
     const {match} =this.props;
     // const {loading} = this.state;
     return(
-      <div className='shop-page'>
+      <ShopPageContainer>
+      <Suspense fallback={<Spinner/>}>
         <Route exact path={`${match.path}`} component={CollectionsOverviewContainer} />
         <Route
         path={`${match.path}/:collectionId`}
         component={CollectionPageContainer}
       />
-      </div>
+      </Suspense>
+      </ShopPageContainer>
     );
   }
 } 

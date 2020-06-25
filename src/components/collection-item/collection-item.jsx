@@ -12,7 +12,6 @@ import { CollectionItemContainer,
 
 export const CollectionItem =({item,addItem}) =>{
     const { name, price, imageUrl } = item;
-    console.log('collections-imageUrl',imageUrl)
     return(
         <CollectionItemContainer>
         <BackgroundImage className='image' imageUrl={imageUrl}/> 

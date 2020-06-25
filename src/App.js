@@ -1,18 +1,25 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, Suspense} from 'react';
 import { Route,Switch, Redirect} from 'react-router-dom';
-import Home from './pages/home/home';
-import ShopPage from './pages/shop/shop-page';
 import Header from './components/header/header';
-import SignInSignUp from './pages/sign-in-up/sing-in-up';
 import {connect} from 'react-redux';
 import {selectCurrentUser} from './redux/user/selector-user';
 import {createStructuredSelector} from 'reselect';
-import CheckoutPage from './pages/checkout/checkout-page';
 import { checkUserSession } from './redux/user/act-user';
 import {GlobalStyle} from './global.style';
+import Spinner from './components/spinner/spinner';
+import ErrorBoundary from './components/error-boundary/error-boundary.jsx';
+// import CheckoutPage from './pages/checkout/checkout-page';
+// import SignInSignUp from './pages/sign-in-up/sing-in-up';
+// import ShopPage from './pages/shop/shop-page';
+// import Home from './pages/home/home';
 
 /** class component coverted to functional component....for the class component ref u can check shop-page means the [componentDidMount] */
 
+
+const HomePage = React.lazy( () =>import('./pages/home/home'));
+const ShopPage  = React.lazy(()=>import('./pages/shop/shop-page'));
+const SignInSignUp  = React.lazy(()=>import('./pages/sign-in-up/sing-in-up'));
+const CheckoutPage  = React.lazy(()=>import('./pages/checkout/checkout-page'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -68,7 +75,9 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle/>
       <Header/>
         <Switch>
-          <Route exact path='/' component={Home}/>
+        <ErrorBoundary>
+        <Suspense fallback={<Spinner/>}>
+          <Route exact path='/' component={HomePage}/>
           <Route path='/Shop' component={ShopPage}/>
           <Route exact path ='/checkout' component={CheckoutPage}/>
           <Route 
@@ -80,6 +89,8 @@ const App = ({ checkUserSession, currentUser }) => {
           (<SignInSignUp/>)
           }
           />
+          </Suspense>
+          </ErrorBoundary>
         </Switch>
       </div>
     );
