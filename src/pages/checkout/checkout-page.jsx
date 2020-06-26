@@ -11,7 +11,6 @@ import {
 
 import StripeCheckoutButton from './../../components/stripe-button/stripe-button'
 
-
 import {CheckoutPageContainer,
   CheckoutHeaderContainer,
   HeaderBlockContainer,
@@ -45,7 +44,7 @@ const CheckoutPage = ({ cartItems, total }) => (
     <WarningContainer>
     *Please use the following test credit card for payments*
     <br/>
-    4242 4242 4242  -  Exp:use any future date  -   CVV:123
+    4242 4242 4242 4242 -  Exp:use any future date  -   CVV:123
     </WarningContainer>
     <StripeCheckoutButton price={total}/>
   </CheckoutPageContainer>
