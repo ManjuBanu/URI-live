@@ -75,8 +75,6 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle/>
       <Header/>
         <Switch>
-        <ErrorBoundary>
-        <Suspense fallback={<Spinner/>}>
           <Route exact path='/' component={HomePage}/>
           <Route path='/Shop' component={ShopPage}/>
           <Route path='/contact' component={ErrorBoundary}/>
@@ -90,8 +88,7 @@ const App = ({ checkUserSession, currentUser }) => {
           (<SignInSignUp/>)
           }
           />
-          </Suspense>
-          </ErrorBoundary>
+
         </Switch>
       </div>
     );
