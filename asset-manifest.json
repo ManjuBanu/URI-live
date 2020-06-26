@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/URI-live/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/URI-live/static/js/main.8b16a6e5.chunk.js",
+    "main.js.map": "/URI-live/static/js/main.8b16a6e5.chunk.js.map",
+    "runtime-main.js": "/URI-live/static/js/runtime-main.dfd62c2e.js",
+    "runtime-main.js.map": "/URI-live/static/js/runtime-main.dfd62c2e.js.map",
+    "static/js/2.3656412c.chunk.js": "/URI-live/static/js/2.3656412c.chunk.js",
+    "static/js/2.3656412c.chunk.js.map": "/URI-live/static/js/2.3656412c.chunk.js.map",
+    "static/js/3.ff143ede.chunk.js": "/URI-live/static/js/3.ff143ede.chunk.js",
+    "static/js/3.ff143ede.chunk.js.map": "/URI-live/static/js/3.ff143ede.chunk.js.map",
+    "static/js/4.11f2a129.chunk.js": "/URI-live/static/js/4.11f2a129.chunk.js",
+    "static/js/4.11f2a129.chunk.js.map": "/URI-live/static/js/4.11f2a129.chunk.js.map",
+    "static/js/5.b085b6b4.chunk.js": "/URI-live/static/js/5.b085b6b4.chunk.js",
+    "static/js/5.b085b6b4.chunk.js.map": "/URI-live/static/js/5.b085b6b4.chunk.js.map",
+    "static/js/6.d278b7fe.chunk.js": "/URI-live/static/js/6.d278b7fe.chunk.js",
+    "static/js/6.d278b7fe.chunk.js.map": "/URI-live/static/js/6.d278b7fe.chunk.js.map",
+    "static/js/7.322b9e65.chunk.js": "/URI-live/static/js/7.322b9e65.chunk.js",
+    "static/js/7.322b9e65.chunk.js.map": "/URI-live/static/js/7.322b9e65.chunk.js.map",
+    "static/js/8.0bb2ecaa.chunk.js": "/URI-live/static/js/8.0bb2ecaa.chunk.js",
+    "static/js/8.0bb2ecaa.chunk.js.map": "/URI-live/static/js/8.0bb2ecaa.chunk.js.map",
+    "index.html": "/URI-live/index.html",
+    "precache-manifest.b994deb2a00814479ef3cdd425ffb103.js": "/URI-live/precache-manifest.b994deb2a00814479ef3cdd425ffb103.js",
+    "service-worker.js": "/URI-live/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/URI-live/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.3656412c.chunk.js.LICENSE.txt": "/URI-live/static/js/2.3656412c.chunk.js.LICENSE.txt",
+    "static/media/crown.ed28accb.svg": "/URI-live/static/media/crown.ed28accb.svg",
+    "static/media/shopping-bag.30f07071.svg": "/URI-live/static/media/shopping-bag.30f07071.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dfd62c2e.js",
+    "static/js/2.3656412c.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.8b16a6e5.chunk.js"
+  ]
+}
