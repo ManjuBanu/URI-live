@@ -10,11 +10,12 @@ import {signOutStart} from './../../redux/user/act-user';
  
 
 
-
 import {HeaderContainer,
   LogoContainer,
   OptionsContainer,
   OptionLink} from './style-header';
+
+  
 
 const Header = ({ currentUser, hidden,signOutStart}) => (
   <HeaderContainer>

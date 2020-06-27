@@ -8,6 +8,7 @@ import { checkUserSession } from './redux/user/act-user';
 import {GlobalStyle} from './global.style';
 import Spinner from './components/spinner/spinner';
 import ErrorBoundary from './components/error-boundary/error-boundary.jsx';
+import Contact from './pages/contact/contact'
 // import CheckoutPage from './pages/checkout/checkout-page';
 // import SignInSignUp from './pages/sign-in-up/sing-in-up';
 // import ShopPage from './pages/shop/shop-page';
@@ -74,22 +75,25 @@ const App = ({ checkUserSession, currentUser }) => {
       <div>
       <GlobalStyle/>
       <Header/>
-        <Switch>
-          <Route exact path='/' component={HomePage}/>
-          <Route path='/Shop' component={ShopPage}/>
-          <Route path='/contact' component={ErrorBoundary}/>
-          <Route exact path ='/checkout' component={CheckoutPage}/>
-          <Route 
-          exact 
-          path='/signin' 
-          render={()=> currentUser ?
-          (<Redirect to='/'/>)
-          :
-          (<SignInSignUp/>)
-          }
-          />
-
-        </Switch>
+      <Switch>
+      <ErrorBoundary>
+      <Suspense fallback={<Spinner/>}>
+        <Route exact path='/' component={HomePage}/>
+        <Route path='/Shop' component={ShopPage}/>
+        <Route path='/contact' component={Contact}/>
+        <Route exact path ='/checkout' component={CheckoutPage}/>
+        <Route 
+        exact 
+        path='/signin' 
+        render={()=> currentUser ?
+        (<Redirect to='/'/>)
+        :
+        (<SignInSignUp/>)
+        }
+        />
+        </Suspense>
+        </ErrorBoundary>
+      </Switch>
       </div>
     );
 
