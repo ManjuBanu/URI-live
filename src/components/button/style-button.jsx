@@ -61,7 +61,7 @@ export const CustomButtonContainer = styled.button`
 
   @media screen and (max-width: 800px) {
     min-width: 100px;
-    width: 40%;
+    width: auto;
     height: 30px;
     letter-spacing: 0.5px;
     line-height: 35px;

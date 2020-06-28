@@ -1,55 +1,60 @@
 import React from 'react';
-// import FormInput from './../../components/form/form-component';
-import {Countries} from './countries.js';
+import styled from 'styled-components';
+import DropDowns from './DropDowns';
+
 
 import { FormTextAreaContainer,
-    FormSelectContainer,
     ContactContainer,
     FormInputContainer, 
     FormInputLabel,
+    StyledContainer,
+    StyledChildContainer,
     ContactSpan,
-    FormOptionContainer,
+    StyledButton,
     ContactTitle} from './style-contact';
 
-
 class Contact extends React.Component {
-constructor() {
-    super();
 
-    this.state = {
-     countries : Countries
-    };
-}
-
-
+  onSubmit = () =>{
+    alert('Submited Successfully !! ');
+  }
 
 render(){
-    const {countries} =this.state;
+
     return(
     <div>
     <ContactContainer>
-    <ContactTitle>I do not have a account </ContactTitle>
-    <ContactSpan>Sign up with your email and password </ContactSpan>
+    <ContactTitle>Write something.... </ContactTitle>
+    <ContactSpan>Will respond you soon.!! </ContactSpan>
     <form>
-    <FormInputLabel for="fname">First Name</FormInputLabel>
-    <FormInputContainer type="text" id="fname" name="firstname" placeholder="Your name.."/>
+    <StyledContainer>
+      <StyledChildContainer>
+          <FormInputLabel for="fname">First Name</FormInputLabel>
+          <FormInputContainer type="text" id="fname" name="firstname" placeholder="Your name.."/>
+      </StyledChildContainer>
+      <StyledChildContainer>
+            <FormInputLabel for="lname">Last Name</FormInputLabel>
+            <FormInputContainer type="text" id="lname" name="lastname" placeholder="Your last name.."/>
+      </StyledChildContainer>
+    </StyledContainer>
 
-    <FormInputLabel for="lname">Last Name</FormInputLabel>
-    <FormInputContainer type="text" id="lname" name="lastname" placeholder="Your last name.."/>
 
-    <FormInputLabel for="country">Country</FormInputLabel>
-    <FormSelectContainer id="country" name="country">
-    
-    {countries.map(({code, name}) => (
-        <FormOptionContainer code={code} >{name}</FormOptionContainer>
-      ))}
-
-    </FormSelectContainer>
+    <StyledContainer>
+      <StyledChildContainer>
+          <FormInputLabel for="fname">Email</FormInputLabel>
+          <FormInputContainer type="email" id="email" name="email" placeholder="Your email.."/>
+      </StyledChildContainer>
+      <StyledChildContainer>
+          <FormInputLabel for="lname">Phone</FormInputLabel>
+          <FormInputContainer type="phone" id="phone" name="phone" placeholder="Your phone number.."/>
+      </StyledChildContainer>
+    </StyledContainer>
+   <DropDowns/>
 
     <FormInputLabel for="subject">Subject</FormInputLabel>
     <FormTextAreaContainer id="subject" name="subject" placeholder="Write something.."></FormTextAreaContainer>
 
-    <input type="submit" value="Submit"/>
+    <StyledButton type='submit' onClick={this.onSubmit}>SUBMIT</StyledButton>
   </form>
     </ContactContainer>
    </div>
@@ -60,3 +65,12 @@ render(){
 export default Contact;
 
 
+
+// <FormInputLabel for="country">Country</FormInputLabel>
+// <FormSelectContainer id="country" name="country">
+
+// {countries.map(({code, name}) => (
+//     <FormOptionContainer code={code} >{name}</FormOptionContainer>
+//   ))}
+
+// </FormSelectContainer>

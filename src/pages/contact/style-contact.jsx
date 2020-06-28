@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import CustomButton from './../../components/button/button';
 
-const subColor = 'grey';
 const mainColor = 'black';
 
 const shrinkLabelStyles = css`
@@ -31,85 +32,18 @@ export const ContactTitle = styled.h2`
 `;
 export const ContactSpan = styled.h4`
 text-align:center;
-  margin: 10px 0;
+  margin: 10px 0px 20px 0px;
+
   @media screen and (max-width: 800px) {
     margin: 0;
     text-align:center;
+  
   }
   `;
-
-export const FormInputLabel = styled.label`
-color:red;
-font-size: 16px;
-font-weight: normal;
-left: 5px;
-top: 10px;
-transition: 300ms ease all;
-`;
-
-export const FormInputContainer = styled.input`
-  background: none;
-  background-color: white;
-  color: green;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 100%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid black;
-  margin: 25px 0;
-
-
-  /* &:focus {
-    outline: none;
-  }
-
-  &:focus ~ label {
-    ${shrinkLabelStyles}
-  } */
-`;
-
-export const FormSelectContainer = styled.select`
-  background: none;
-  background-color: white;
-  color: green;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 50%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid black;
-  margin: 25px 0;
-
-
-  /* &:focus {
-    outline: none;
-  }
-
-  &:focus ~ label {
-    ${shrinkLabelStyles}
-  } */
-`;
-export const FormOptionContainer = styled.option`
-  background: none;
-  background-color: white;
-  color: black;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 200px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid black;
-  margin: 25px 0;
-`;
 
 export const FormTextAreaContainer = styled.textarea`
   background: none;
   background-color: white;
-  color: green;
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
@@ -117,7 +51,7 @@ export const FormTextAreaContainer = styled.textarea`
   border: none;
   border-radius: 0;
   border-bottom: 1px solid black;
-  margin: 25px 0;
+  margin: 10px 0;
 
   &:focus {
     outline: none;
@@ -126,6 +60,108 @@ export const FormTextAreaContainer = styled.textarea`
   &:focus ~ label {
     ${shrinkLabelStyles}
   }
+`;
+
+
+export const StyledContainer = styled.div`
+  background: none;
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  height:80px;
+  border: none;
+  margin-top:20px;
+`;
+export const StyledChildContainer = styled.div`
+background: none;
+  color: black;
+  font-size: 18px;
+  width: 50%;
+  border: none;
+  border-radius: 0;
+  margin: 0px 0;
+  float:left;
+  height:80px;
+`;
+
+export const FormInputContainer = styled.input`
+  background: none;
+  background-color: white;
+  font-size: 18px;
+    padding: 10px 10px 10px 5px;
+  display: block;
+  width:95%;
+  border: 1px solid black;
+  border-radius: 0;
+margin:8px;
+  /* &:focus {
+    outline: none;
+  }
+
+  &:focus ~ label {
+    ${shrinkLabelStyles}
+  } */
+`;
+
+export const FormInputLabel = styled.label`
+font-size: 18px;
+font-weight: 900;
+transition: 300ms ease all;
+margin:10px 0px 5px 10px;
+`;
+
+export const StyledText = styled.div`
+font-size: 18px;
+font-weight: 900;
+transition: 300ms ease all;
+margin:10px 0px 5px 10px;
+`;
+
+export const StyledDropDown = styled.div`
+  background: none;
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  height:90px;
+  border: none;
+  padding-top:0px;
+  margin-bottom:10px;
+
+`;
+export const StyledCountryDropdown = styled(CountryDropdown)`
+background-color:white;
+  color: black;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width:47%;
+  border: 1px solid black;
+  border-radius: 0;
+  margin:8px 3px 8px 5px;
+float: left;
+`;
+
+
+export const StyledRegionDropdown = styled(RegionDropdown)`
+background-color:white;
+  color: black;
+  font-size: 18px;
+    padding: 10px 10px 10px 5px;
+  display: block;
+  width:47%;
+  border: 1px solid black;
+  border-radius: 0;
+margin:8px 0px 8px 8px;
+float: left;
+`;
+
+
+export const StyledButton = styled(CustomButton)`
+background-color:darkgrey;
+margin-left:38%;
+margin-top:50px;
+border-radius:20px;
+width:0px;
 `;
 
 // import styled from 'styled-components';
@@ -176,3 +212,17 @@ export const FormTextAreaContainer = styled.textarea`
 // //         margin:10px 0;
 // //     }
 // // }
+
+// export const FormOptionContainer = styled.option`
+//   background: none;
+//   background-color: white;
+//   color: black;
+//   font-size: 18px;
+//   padding: 10px 10px 10px 5px;
+//   display: block;
+//   width: 200px;
+//   border: none;
+//   border-radius: 0;
+//   border-bottom: 1px solid black;
+//   margin: 25px 0;
+// `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import CustomButton from './../button/button';
 
 export const SignInContainer = styled.div`
   width: 380px;
@@ -35,6 +36,10 @@ export const ButtonsBarContainer = styled.div`
 
 `;
 
+export const StyledCustomButton = styled(CustomButton) `
+background-color: #4285f4;
+`;
+ 
 
 // .sign-in {
 //     width: 380px;

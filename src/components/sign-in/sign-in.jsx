@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 
 import {SignInContainer,
   SignInTitle,
+  StyledCustomButton,
   SignUpSpan,
   ButtonsBarContainer} from './style-sign-in';
 
@@ -68,11 +69,11 @@ import {SignInContainer,
             />
             <ButtonsBarContainer>
               <CustomButton type='submit'> Sign in </CustomButton>
-              <CustomButton
+              <StyledCustomButton
               type = 'button'
               onClick={googleSignInStart} isGoogleSignIn>
                 Sign in with Google
-              </CustomButton>
+              </StyledCustomButton>
             </ButtonsBarContainer>
           </form>
         </SignInContainer>
