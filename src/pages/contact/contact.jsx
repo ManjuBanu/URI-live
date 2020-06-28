@@ -15,9 +15,6 @@ import { FormTextAreaContainer,
 
 class Contact extends React.Component {
 
-  onSubmit = () =>{
-    alert('Submited Successfully !! ');
-  }
 
 render(){
 
@@ -54,7 +51,7 @@ render(){
     <FormInputLabel for="subject">Subject</FormInputLabel>
     <FormTextAreaContainer id="subject" name="subject" placeholder="Write something.."></FormTextAreaContainer>
 
-    <StyledButton type='submit' onClick={this.onSubmit}>SUBMIT</StyledButton>
+    <StyledButton type='submit'>SUBMIT</StyledButton>
   </form>
     </ContactContainer>
    </div>

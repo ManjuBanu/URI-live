@@ -137,8 +137,11 @@ background-color:white;
   width:47%;
   border: 1px solid black;
   border-radius: 0;
-  margin:8px 3px 8px 5px;
+  margin:8px 0px 8px 5px;
 float: left;
+@media screen and (max-width: 800px) {
+    margin:8px 3px 8px 5px;
+  }
 `;
 
 
@@ -146,13 +149,16 @@ export const StyledRegionDropdown = styled(RegionDropdown)`
 background-color:white;
   color: black;
   font-size: 18px;
-    padding: 10px 10px 10px 5px;
+  padding: 10px 10px 10px 5px;
   display: block;
   width:47%;
   border: 1px solid black;
   border-radius: 0;
-margin:8px 0px 8px 8px;
+margin:8px 0px 20px 17px;
 float: left;
+@media screen and (max-width: 800px) {
+    margin:8px 3px 8px 5px;
+  }
 `;
 
 
